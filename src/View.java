@@ -17,17 +17,24 @@ class View {
 
     public static String getStatFromPlayer() {
         validChoice = false;
+
         while (validChoice!) {
             System.out.print(Choose one stat from Your card by number: );
+
             String userChoice = input.nextLine();
             int intUserChoice = Integer.parseInt(userChoice);
-            if (intUserChoice < 1 || intUserChoice > 7) {
-                clearScreen();
-                System.out.println("Invalid number");
-            } else {
-                validChoice = true;
-                clearScreen();
-                return intUserChoice;
+            try {
+                if (intUserChoice < 1 || intUserChoice > 7) {
+                    clearScreen();
+                    System.out.println("Invalid number");
+                } else {
+                    validChoice = true;
+                    clearScreen();
+                    return intUserChoice;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Provide number!");
+                e.printStackTrace();
             }
         }
     }
