@@ -20,8 +20,15 @@ class Card {
         this.demotivation = demotivation;
     }
 
-    public String toString(int) {
-        return Integer.toString(int);
+    public String toString() {
+        return "Name: " + name "\n
+        Strength: " + Integer.toString(strength) +"\n
+        Typing speed: " + Integer.toString(typingSpeed) + "\n
+        Punch power: " + Integer.toString(punchPower) + "\n
+        Brain power: " + Integer.toString(brainPower) + "\n
+        Funny meter: " + Integer.toString(funnyMeter) + "\n
+        Anger: " + Integer.toString(anger) + "\n
+        Demotivation: " + Integer.toString(demotivation);
     }
 
     public String getName() {
