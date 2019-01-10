@@ -6,7 +6,12 @@ class Board {
     private ArrayList<Card> drawedCards;
 
     public Board() {
-        playersList = new playersList();
+        playersList = new ArrayList<Player>();
+        currentlyPlayingCards = new ArrayList<Card>();
+        drawedCards = new ArrayList<Card>();
+        playersList.add(new Player());
+        playersList.add(new Player());
+        dealCards();
     }
 
     public ArrayList<Player> getPlayersList() {
@@ -16,12 +21,16 @@ class Board {
     public void dealCards() {
         Dealer dealer = new Dealer();
         int playerTurn = 0;
-        for(int i = 0; i < dealer.getDeckSize(); i++) {
-            playersList.get(playerTurn).addCardToHand(dealer.dealCard());      
-            
+        while(dealer.getDeckSize() > 0) {
+            System.out.println("wkladam");
+            playersList.get(playerTurn).addCardToHand(dealer.dealCard());
+            System.out.println("wlozylem");
+            System.out.println("wzialem z gory");
             switch(playerTurn) {
                 case 0: playerTurn = 1;
+                        break;
                 case 1: playerTurn = 0;
+                        break;
             }
         }
     }
@@ -42,11 +51,13 @@ class Board {
     }
 
     public void addCurrentlyPlayingCards(Card a, Card b) {
-        currentlyPlayingCards.add(a, b);
+        currentlyPlayingCards.add(a);
+        currentlyPlayingCards.add(b);
     }
 
     public void addCardsToDrawedCardsAndRemoveFromCurrentlyPlaying() {
-        drawedCards.add(currentlyPlayingCards.get(0), currentlyPlayingCards.get(1));
+        drawedCards.add(currentlyPlayingCards.get(0));
+        drawedCards.add(currentlyPlayingCards.get(1));
         currentlyPlayingCards.clear();
     }
 

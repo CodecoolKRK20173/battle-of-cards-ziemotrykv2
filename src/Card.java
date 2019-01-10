@@ -21,14 +21,13 @@ class Card {
     }
 
     public String toString() {
-        return "Name: " + name "\n
-        Strength: " + Integer.toString(strength) +"\n
-        Typing speed: " + Integer.toString(typingSpeed) + "\n
-        Punch power: " + Integer.toString(punchPower) + "\n
-        Brain power: " + Integer.toString(brainPower) + "\n
-        Funny meter: " + Integer.toString(funnyMeter) + "\n
-        Anger: " + Integer.toString(anger) + "\n
-        Demotivation: " + Integer.toString(demotivation);
+        return "Name: " + name + "\nStrength: " + Integer.toString(strength) +
+        "\n Typing speed: " + Integer.toString(typingSpeed) +
+        "\n Punch power: " + Integer.toString(punchPower) +
+        "\n Brain power: " + Integer.toString(brainPower) +
+        "\n Funny meter: " + Integer.toString(funnyMeter) +
+        "\n Anger: " + Integer.toString(anger) +
+        "\n Demotivation: " + Integer.toString(demotivation);
     }
 
     public String getName() {
@@ -44,11 +43,11 @@ class Card {
     }
 
     public int getPunchPower() {
-        return getPunchPower;
+        return punchPower;
     }
 
     public int getBrainPower() {
-        return getBrainPower;
+        return brainPower;
     }
 
     public int getFunnyMeter() {
@@ -66,20 +65,14 @@ class Card {
     public int getStatByString(int stat) {
         switch (stat) {
             case 1: return getStrength();
-                    break;
             case 2: return getTypingSpeed();
-                    break;
             case 3: return getPunchPower();
-                    break;
             case 4: return getBrainPower();
-                    break;
             case 5: return getFunnyMeter();
-                    break;
             case 6: return getAnger();
-                    break;
             case 7: return getDemotivation();
-                    break;
 
         }
+        return 0;
     }
 }

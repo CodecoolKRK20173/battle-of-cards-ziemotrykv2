@@ -1,24 +1,23 @@
 import java.util.Scanner;
 
 class View {
-    Scanner input = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
 
-    public static String printMenu() {
+    public static void printMenu() {
         //printLogo();
-        System.out.println("[1] - Start game\n
-        [2] - Exit");
+        System.out.println("[1] - Start game\n[2] - Exit");
         System.out.print("\n: ");
     }
 
-    public static String printCard(Card topCard) {
+    public static void printCard(Card topCard) {
         System.out.println(topCard.toString());
     }
 
     public static int getStatFromPlayer() {
-        validChoice = false;
+        boolean validChoice = false;
 
         while (!validChoice) {
-            System.out.print(Choose one stat from Your card by number: );
+            System.out.print("Choose one stat from Your card by number: ");
 
             String userChoice = input.nextLine();
             int intUserChoice = Integer.parseInt(userChoice);
@@ -37,6 +36,8 @@ class View {
                 e.printStackTrace();
             }
         }
+
+        return -1;
     }
 
     public static void clearScreen() {
@@ -45,12 +46,12 @@ class View {
     }
 
     public static int getInput() {
-        validChoice = false;
+        boolean validChoice = false;
         try {
             while (!validChoice) {
                 String userInput = input.nextLine();
                 int intUserInput = Integer.parseInt(userInput);
-                if (userInput < 1 || userInput > 2) {
+                if (intUserInput >= 1 || intUserInput <= 2) {
                     validChoice = true;
                     clearScreen();
                     return intUserInput;
@@ -61,9 +62,11 @@ class View {
             }
         } catch (NumberFormatException e) {
             clearScreen();
-            System.out.println("Provide valid number!");
+            System.out.println("FormatException");
             e.printStackTrace();
         }
+
+        return -1;
     }
 
 

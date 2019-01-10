@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.ArrayList;
 
 class LogicHandler {
     public static boolean notWon(ArrayList<Player> playersList) {
@@ -17,7 +18,7 @@ class LogicHandler {
     }
 
     public static int compareStats(int stat1, int stat2) {
-        i = stat1 - stat2;
+        int i = stat1 - stat2;
         return i;
     }
 

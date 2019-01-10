@@ -2,8 +2,6 @@ class GameController {
     Board board;
 
     int currentPlayer;
-    Player firstPlayer = board.getPlayersList.get(0);
-    Player secondPlayer = board.getPlayersList.get(1);
 
     public GameController() {
         this.board = new Board();
@@ -12,8 +10,7 @@ class GameController {
 
     public void run() {
         View.printMenu();
-        getMenuInput();
-        gameLoop();
+        menuHandler();
 
     }
 
@@ -36,27 +33,27 @@ class GameController {
 
     public Player checkRoundWinner(int winner) {
         if (winner == 1) {
-            return firstPlayer;
+            return board.getPlayersList().get(0);
         } else {
-            return secondPlayer;
+            return board.getPlayersList().get(1);
         }
     }
 
     private void gameLoop() {
+        System.out.println("jestesmy");
         while (LogicHandler.notWon(board.getPlayersList())) {
-            board.addCurrentlyPlayingCards(firstPlayer.getTopCard(), secondPlayer.getTopCard());
-            int choosenStat = board.getPlayersList.get(currentPlayer).chooseStat();
-            int comparedStats = LogicHandler.compareStats(firstPlayer.getTopCard().getStatByString(choosenStat), secondPlayer.getTopCard().getStatByString(choosenStat));
-            firstPlayer.playTopCard();
-            secondPlayer.playTopCard();
+            System.out.println("hahahahaha CHUJ");
+            board.addCurrentlyPlayingCards(board.getPlayersList().get(0).getTopCard(), board.getPlayersList().get(1).getTopCard());
+            int choosenStat = board.getPlayersList().get(currentPlayer).chooseStat();
+            int comparedStats = LogicHandler.compareStats(board.getPlayersList().get(0).getTopCard().getStatByString(choosenStat), board.getPlayersList().get(1).getTopCard().getStatByString(choosenStat));
+            board.getPlayersList().get(0).playTopCard();
+            board.getPlayersList().get(1).playTopCard();
             int winner = LogicHandler.roundWinCheck(comparedStats);
             if (winner < 3) {
                 board.giveCardsToWinner(checkRoundWinner(winner));
-                View.clearScreen();
                 System.out.println("player " + winner + "won that round!");
                 SwitchPlayer();
             } else {
-                view.clearScreen();
                 System.out.println("DRAW!");
                 board.addCardsToDrawedCardsAndRemoveFromCurrentlyPlaying();
             }

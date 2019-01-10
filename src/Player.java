@@ -1,11 +1,17 @@
-class Player {
-    CardsCollection cardsInHand = new CardsCollection();
+import java.util.ArrayList;
 
-    public Card getTopCard() {
-        return cardList.get(0);
+class Player {
+    CardsCollection cardsInHand;
+
+    public Player() {
+        this.cardsInHand = new CardsCollection();
     }
 
-    public Card playTopCard() {        
+    public Card getTopCard() {
+        return cardsInHand.getTopCard();
+    }
+
+    public Card playTopCard() {
         return cardsInHand.getTopCardAndRemove();
     }
 
