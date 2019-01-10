@@ -1,7 +1,8 @@
 #!/bin/bash
-if [ -d "$out" ]
+if [ ! -d "$out" ]
 then
-    mkdir out
+    mkdir out >>/dev/null
+    clear
 fi
 cd src
 rm -f ../out/*.class && javac -d ../out Main.java && java -cp ../out/ Main
