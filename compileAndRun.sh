@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ -f "$out" ]
+if [ ! -d "$symout" ]
 then
     mkdir out
 fi
