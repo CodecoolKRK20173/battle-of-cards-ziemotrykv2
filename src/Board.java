@@ -32,4 +32,9 @@ class Board {
         currentlyPlayingCards.add(a, b);
     }
 
+    public void addCardsToDrawedCardsAndRemoveFromCurrentlyPlaying() {
+        drawedCards.add(currentlyPlayingCards.get(0), currentlyPlayingCards.get(1));
+        currentlyPlayingCards.clear();
+    }
+
 }

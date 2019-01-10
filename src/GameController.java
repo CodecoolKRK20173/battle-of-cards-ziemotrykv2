@@ -26,7 +26,7 @@ class GameController {
         }
     }
 
-    public Player nintendoSwitchPlayer() {
+    public void SwitchPlayer() {
         if (currentPlayer == 0) {
             currentPlayer = 1;
         } else {
@@ -34,17 +34,37 @@ class GameController {
         }
     }
 
+    public Player checkRoundWinner(int winner) {
+        if (winner == 1) {
+            return firstPlayer;
+        } else {
+            return secondPlayer;
+        }
+    }
+
     private void gameLoop() {
         while (LogicHandler.notWon(board.getPlayersList())) {
             board.addCurrentlyPlayingCards(firstPlayer.getTopCard(), secondPlayer.getTopCard());
             int choosenStat = board.getPlayersList.get(currentPlayer).chooseStat();
-            LogicHandler.compareStats(firstPlayer.getTopCard().getStatByString(choosenStat), secondPlayer.getTopCard().getStatByString(choosenStat));
+            int comparedStats = LogicHandler.compareStats(firstPlayer.getTopCard().getStatByString(choosenStat), secondPlayer.getTopCard().getStatByString(choosenStat));
+            firstPlayer.playTopCard();
+            secondPlayer.playTopCard();
+            int winner = LogicHandler.roundWinCheck(comparedStats);
+            if (winner < 3) {
+                board.giveCardsToWinner(checkRoundWinner(winner));
+                View.clearScreen();
+                System.out.println("player " + winner + "won that round!");
+                SwitchPlayer();
+            } else {
+                view.clearScreen();
+                System.out.println("DRAW!");
+                board.addCardsToDrawedCardsAndRemoveFromCurrentlyPlaying();
+            }
 
 
         }
+
+        System.out.println("Someone won");
     }
-
-
-
 
 }

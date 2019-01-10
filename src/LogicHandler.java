@@ -24,12 +24,12 @@ class LogicHandler {
     public static int roundWinCheck(int i) {
         if (i > 0) {
             System.out.println("player1");
-            return 0;
+            return 1;
         } else if (i < 0) {
             System.out.println("player2");
-            return 1;
-        } else {
             return 2;
+        } else {
+            return 3;
         }
     }
 

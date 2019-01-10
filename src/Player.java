@@ -5,7 +5,9 @@ class Player {
         return cardList.get(0);
     }
 
-    //public Card playTopCard() {}
+    public Card playTopCard() {        
+        return cardsInHand.getTopCardAndRemove();
+    }
 
     public int chooseStat() {
         View.printCard(getTopCard());
