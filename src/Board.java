@@ -28,4 +28,8 @@ class Board {
         }
     }
 
+    public void addCurrentlyPlayingCards(Card a, Card b) {
+        currentlyPlayingCards.add(a, b);
+    }
+
 }
