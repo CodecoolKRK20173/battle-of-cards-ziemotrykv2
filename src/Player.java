@@ -13,5 +13,15 @@ class Player {
         return choosenStat;
     }
 
+    public void addCardToHand(Card cardToAdd) {
+        cardsInHand.addCard(cardToAdd);
+    }
 
+    public void addListOfCardsToBottom(ArrayList<Card> cardsToInsert) {
+        cardsInHand.insertListOfCardsToBottom(cardsToInsert);
+    }
+
+    public boolean checkIfLost() {
+        return !cardsInHand.isNotEmpty();
+    }
 }
