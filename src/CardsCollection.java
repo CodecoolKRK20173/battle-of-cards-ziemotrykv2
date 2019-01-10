@@ -42,4 +42,8 @@ class CardsCollection {
     public void addCard(Card cardToAdd) {
         cardsList.add(cardToAdd);
     }
+
+    public void clear() {
+        cardsList.clear();
+    }
 }
