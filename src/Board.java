@@ -22,10 +22,7 @@ class Board {
         Dealer dealer = new Dealer();
         int playerTurn = 0;
         while(dealer.getDeckSize() > 0) {
-            System.out.println("wkladam");
             playersList.get(playerTurn).addCardToHand(dealer.dealCard());
-            System.out.println("wlozylem");
-            System.out.println("wzialem z gory");
             switch(playerTurn) {
                 case 0: playerTurn = 1;
                         break;

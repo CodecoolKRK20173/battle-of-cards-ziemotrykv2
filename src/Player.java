@@ -11,6 +11,7 @@ class Player {
         return cardsInHand.getTopCard();
     }
 
+
     public Card playTopCard() {
         return cardsInHand.getTopCardAndRemove();
     }
@@ -19,6 +20,10 @@ class Player {
         View.printCard(getTopCard());
         int choosenStat = View.getStatFromPlayer();
         return choosenStat;
+    }
+
+    public int getCardsInHandSize() {
+        return cardsInHand.getCardList().size();
     }
 
     public void addCardToHand(Card cardToAdd) {

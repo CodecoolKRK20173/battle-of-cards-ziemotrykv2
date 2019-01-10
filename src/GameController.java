@@ -40,9 +40,8 @@ class GameController {
     }
 
     private void gameLoop() {
-        System.out.println("jestesmy");
         while (LogicHandler.notWon(board.getPlayersList())) {
-            System.out.println("hahahahaha CHUJ");
+            System.out.println(board.getPlayersList().get(0).getCardsInHandSize() + " " + board.getPlayersList().get(1).getCardsInHandSize());
             board.addCurrentlyPlayingCards(board.getPlayersList().get(0).getTopCard(), board.getPlayersList().get(1).getTopCard());
             int choosenStat = board.getPlayersList().get(currentPlayer).chooseStat();
             int comparedStats = LogicHandler.compareStats(board.getPlayersList().get(0).getTopCard().getStatByString(choosenStat), board.getPlayersList().get(1).getTopCard().getStatByString(choosenStat));
@@ -57,6 +56,7 @@ class GameController {
                 System.out.println("DRAW!");
                 board.addCardsToDrawedCardsAndRemoveFromCurrentlyPlaying();
             }
+
 
 
         }
