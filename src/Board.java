@@ -27,13 +27,4 @@ class Board {
             }
         }
     }
-
-    public boolean checkIfNoOneWon() {
-        for(int i = 0; i < playersList.size(); i++) {
-            if(playersList.get(i).checkIfLost()) {
-                return false;
-            }
-        }
-        return true;
-    }
 }
