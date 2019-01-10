@@ -7,7 +7,7 @@ class Player {
 
     //public Card playTopCard() {}
 
-    public static int chooseStat() {
+    public int chooseStat() {
         View.printCard(getTopCard());
         int choosenStat = getTopCard().getStatByString(View.getStatFromPlayer());
         return choosenStat;

@@ -1,6 +1,7 @@
 class Main {
 
     public static void main(String[] args) {
-        GameController.gameLoop();
+        GameController gameController = new GameController();
+        gameController.run();
     }
 }
