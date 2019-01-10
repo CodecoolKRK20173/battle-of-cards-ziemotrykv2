@@ -53,6 +53,7 @@ class Dealer {
         creatingDeck.add(new Card("Tostozjadacz Piotr Leniartek", 100, 90, 60, 40, 30, 20, 15));
         creatingDeck.add(new Card("Efektywny pracownik piotr leniartek", 0, 110, 0, 110, 0, 0, 0));
         creatingDeck.add(new Card("Piotr Leniartek Zartownis", 10, 20, 40, 20, 0, 0, 0));
+        
         deck.insertListOfCardsToBottom(creatingDeck);
     }
 

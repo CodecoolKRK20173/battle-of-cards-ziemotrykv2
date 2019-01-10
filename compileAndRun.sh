@@ -3,4 +3,5 @@ if [ -f "$out" ]
 then
     mkdir out
 fi
-rm -f out/*.class && javac -d out src/Main.java && java -cp out/ Main
+cd src
+rm -f ../out/*.class && javac -d ../out Main.java && java -cp ../out/ Main
