@@ -9,7 +9,7 @@ class Player {
 
     public int chooseStat() {
         View.printCard(getTopCard());
-        int choosenStat = getTopCard().getStatByString(View.getStatFromPlayer());
+        int choosenStat = View.getStatFromPlayer();
         return choosenStat;
     }
 

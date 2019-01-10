@@ -63,7 +63,7 @@ class Card {
         return demotivation;
     }
 
-    public int getStatByString(String stat) {
+    public int getStatByString(int stat) {
         switch (stat) {
             case 1: return getStrength();
                     break;
