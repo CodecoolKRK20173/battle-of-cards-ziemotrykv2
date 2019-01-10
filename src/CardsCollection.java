@@ -21,7 +21,7 @@ class CardsCollection {
         cardList.add(cardToInsert);
     }
 
-    public void inserListOfCardsToBottom(ArrayList cardsToInsert) {
+    public void insertListOfCardsToBottom(ArrayList<Card> cardsToInsert) {
         for(int i = 0; i < cardsToInsert.size(); i++) {
             insertCardToBottom(cardsToInsert.get(i));
         }
