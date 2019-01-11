@@ -1,10 +1,17 @@
+import java.util.Comparator;
+import java.util.Map;
+import java.util.HashMap;
+
 class GameController {
     private static LogicHandler logicHandler = new LogicHandler();
+    Map<String, Comparator<Card>> comparatorMap = new HashMap<String, Comparator<Card>>();
+    Comparator<Card> comparator;
     Board board;
 
     int currentPlayer;
 
     public GameController() {
+        setupComparatorMap();
         this.board = new Board();
         this.currentPlayer = logicHandler.chooseStartingPlayer();
     }
@@ -13,6 +20,16 @@ class GameController {
         View.printMenu();
         menuHandler();
 
+    }
+
+    private void setupComparatorMap() {
+        comparatorMap.put("1", new AngerComparator());
+        comparatorMap.put("2", new TypingSpeedComparator());
+        comparatorMap.put("3", new PunchPowerComparator());
+        comparatorMap.put("4", new BrainPowerComparator());
+        comparatorMap.put("5", new FunnyMeterComparator());
+        comparatorMap.put("6", new AngerComparator());
+        comparatorMap.put("7", new DemotivationComparator());
     }
 
     public void menuHandler() {
@@ -40,27 +57,31 @@ class GameController {
         }
     }
 
+    private void setComparator(int choosenStat) {
+        comparator = comparatorMap.get(String.valueOf(choosenStat));
+    }
+
     private void gameLoop() {
         System.out.println("Player " + String.valueOf(currentPlayer) + " Starts");
         while (logicHandler.notWon(board.getPlayersList())) {
             System.out.println(board.getPlayersList().get(0).getCardsInHandSize() + " " + board.getPlayersList().get(1).getCardsInHandSize());
             board.addCurrentlyPlayingCards(board.getPlayersList().get(0).getTopCard(), board.getPlayersList().get(1).getTopCard());
             int choosenStat = board.getPlayersList().get(currentPlayer).chooseStat();
-            int comparedStats = logicHandler.compareStats(board.getPlayersList().get(0).getTopCard().getStatByString(choosenStat), board.getPlayersList().get(1).getTopCard().getStatByString(choosenStat));
+            setComparator(choosenStat);
+            Card card1 = board.getPlayersList().get(0).getTopCard();
+            Card card2 = board.getPlayersList().get(1).getTopCard();
+            int comparedStats = comparator.compare(card1, card2) * -1;
             board.getPlayersList().get(0).playTopCard();
             board.getPlayersList().get(1).playTopCard();
             int winner = logicHandler.roundWinCheck(comparedStats);
             if (winner < 3) {
                 board.giveCardsToWinner(checkRoundWinner(winner));
                 System.out.println("player " + winner + "won last round!");
-                SwitchPlayer();
             } else {
                 System.out.println("DRAW!");
                 board.addCardsToDrawedCardsAndRemoveFromCurrentlyPlaying();
             }
-
-
-
+            SwitchPlayer();
         }
 
         if(board.getPlayersList().get(0).checkIfLost()) {

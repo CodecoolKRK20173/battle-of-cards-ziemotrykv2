@@ -21,13 +21,14 @@ class Card {
     }
 
     public String toString() {
-        return "Name: " + name + "\nStrength: " + Integer.toString(strength) +
-        "\n Typing speed: " + Integer.toString(typingSpeed) +
-        "\n Punch power: " + Integer.toString(punchPower) +
-        "\n Brain power: " + Integer.toString(brainPower) +
-        "\n Funny meter: " + Integer.toString(funnyMeter) +
-        "\n Anger: " + Integer.toString(anger) +
-        "\n Demotivation: " + Integer.toString(demotivation);
+        return "Name: " + name +
+        "\n1: Strength: " + Integer.toString(strength) +
+        "\n2: Typing speed: " + Integer.toString(typingSpeed) +
+        "\n3: Punch power: " + Integer.toString(punchPower) +
+        "\n4: Brain power: " + Integer.toString(brainPower) +
+        "\n5: Funny meter: " + Integer.toString(funnyMeter) +
+        "\n6: Anger: " + Integer.toString(anger) +
+        "\n7: Demotivation: " + Integer.toString(demotivation);
     }
 
     public String getName() {
