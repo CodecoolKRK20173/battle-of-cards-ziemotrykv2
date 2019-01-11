@@ -66,6 +66,7 @@ public class GameController {
             View.printString("Player " + String.valueOf(currentPlayer + 1) + " Round\n\n");
             View.printString("Player 1 cards: " + board.getPlayersList().get(0).getCardsInHandSize() +
             "\nPlayer 2 cards: " + board.getPlayersList().get(1).getCardsInHandSize() + "\n");
+
             board.addCurrentlyPlayingCards(board.getPlayersList().get(0).getTopCard(), board.getPlayersList().get(1).getTopCard());
             int choosenStat = board.getPlayersList().get(currentPlayer).chooseStat();
             setComparator(choosenStat);
@@ -75,6 +76,7 @@ public class GameController {
             board.getPlayersList().get(0).playTopCard();
             board.getPlayersList().get(1).playTopCard();
             int winner = logicHandler.roundWinCheck(comparedStats);
+
             if (winner < 3) {
                 board.giveCardsToWinner(checkRoundWinner(winner));
                 View.printString("Player " + winner + " won last round!!\n");
@@ -85,7 +87,7 @@ public class GameController {
             SwitchPlayer();
         }
 
-        if(board.getPlayersList().get(0).checkIfLost()) {
+        if (board.getPlayersList().get(0).checkIfLost()) {
             View.clearScreen();
             View.printString("Player 2 won!");
         } else {
