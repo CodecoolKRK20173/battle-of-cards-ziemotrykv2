@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.ArrayList;
 
-class LogicHandler {
+public class LogicHandler {
     public boolean notWon(ArrayList<Player> playersList) {
         for(int i = 0; i < playersList.size(); i++) {
             if(playersList.get(i).checkIfLost()) {

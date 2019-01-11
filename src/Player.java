@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
-class Player {
-    CardsCollection cardsInHand;
+public class Player {
+    private CardsCollection cardsInHand;
 
     public Player() {
         this.cardsInHand = new CardsCollection();

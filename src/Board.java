@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class Board {
+public class Board {
     private ArrayList<Player> playersList;
     private ArrayList<Card> currentlyPlayingCards;
     private ArrayList<Card> drawedCards;

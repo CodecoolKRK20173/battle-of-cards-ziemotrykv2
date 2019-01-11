@@ -2,13 +2,13 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.HashMap;
 
-class GameController {
+public class GameController {
     private static LogicHandler logicHandler = new LogicHandler();
-    Map<String, Comparator<Card>> comparatorMap = new HashMap<String, Comparator<Card>>();
-    Comparator<Card> comparator;
-    Board board;
+    private Map<String, Comparator<Card>> comparatorMap = new HashMap<String, Comparator<Card>>();
+    private Comparator<Card> comparator;
+    private Board board;
 
-    int currentPlayer;
+    private int currentPlayer;
 
     public GameController() {
         setupComparatorMap();

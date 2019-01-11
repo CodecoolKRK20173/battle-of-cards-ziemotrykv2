@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-class CardsCollection {
+public class CardsCollection {
     private ArrayList<Card> cardList;
 
     public CardsCollection() {

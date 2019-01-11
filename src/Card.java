@@ -1,12 +1,12 @@
-class Card {
-    String name;
-    int strength;
-    int typingSpeed;
-    int punchPower;
-    int brainPower;
-    int funnyMeter;
-    int anger;
-    int demotivation;
+public class Card {
+    private String name;
+    private int strength;
+    private int typingSpeed;
+    private int punchPower;
+    private int brainPower;
+    private int funnyMeter;
+    private int anger;
+    private int demotivation;
 
     Card(String name, int strength, int typingSpeed, int punchPower, int brainPower,
     int funnyMeter, int anger, int demotivation) {
