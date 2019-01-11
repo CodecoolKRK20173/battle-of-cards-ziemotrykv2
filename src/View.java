@@ -4,25 +4,29 @@ public class View {
     static Scanner input = new Scanner(System.in);
 
     public static void printMenu() {
-        System.out.println("[1] - Start game\n[2] - Exit");
-        System.out.print("\n: ");
+        printString("[1] - Start game\n[2] - Exit");
+        printString(": ");
     }
 
     public static void printCard(Card topCard) {
-        System.out.println(topCard.toString());
+        printString(topCard.toString());
+    }
+
+    public static void printString(String string) {
+        System.out.println(string);
     }
 
     public static int getStatFromPlayer() {
         boolean validChoice = false;
 
         while (!validChoice) {
-            System.out.print("\nChoose one stat from Your card by number: ");
+            printString("\nChoose one stat from Your card by number: ");
             try {
                 String userChoice = input.nextLine();
                 int intUserChoice = Integer.parseInt(userChoice);
                 if (intUserChoice < 1 || intUserChoice > 7) {
                     clearScreen();
-                    System.out.println("Invalid number\n");
+                    printString("Invalid number\n");
                 } else {
                     validChoice = true;
                     clearScreen();
@@ -30,7 +34,7 @@ public class View {
                 }
             } catch (NumberFormatException e) {
                 clearScreen();
-                System.out.println("Provide number!\n");
+                printString("Provide number!\n");
                 //e.printStackTrace(); No exception swallowing!
             }
         }
@@ -38,7 +42,7 @@ public class View {
     }
 
     public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
+        printString("\033[H\033[2J");
         System.out.flush();
     }
 
@@ -54,18 +58,15 @@ public class View {
                     return intUserInput;
                 } else {
                     clearScreen();
-                    System.out.println("Provide valid number!");
+                    printString("Provide valid number!");
                 }
             }
         } catch (NumberFormatException e) {
             clearScreen();
-            System.out.println("FormatException");
+            printString("FormatException");
             //e.printStackTrace(); No exception swallowing!
         }
 
         return -1;
     }
-
-
-    //public static String pringLogo() {}
 }

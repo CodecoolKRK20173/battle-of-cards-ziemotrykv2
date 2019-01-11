@@ -63,8 +63,8 @@ public class GameController {
 
     private void gameLoop() {
         while (logicHandler.notWon(board.getPlayersList())) {
-            System.out.println("Player " + String.valueOf(currentPlayer + 1) + " Round\n\n");
-            System.out.println("Player 1 cards: " + board.getPlayersList().get(0).getCardsInHandSize() +
+            View.printString("Player " + String.valueOf(currentPlayer + 1) + " Round\n\n");
+            View.printString("Player 1 cards: " + board.getPlayersList().get(0).getCardsInHandSize() +
             "\nPlayer 2 cards: " + board.getPlayersList().get(1).getCardsInHandSize() + "\n");
             board.addCurrentlyPlayingCards(board.getPlayersList().get(0).getTopCard(), board.getPlayersList().get(1).getTopCard());
             int choosenStat = board.getPlayersList().get(currentPlayer).chooseStat();
@@ -77,9 +77,9 @@ public class GameController {
             int winner = logicHandler.roundWinCheck(comparedStats);
             if (winner < 3) {
                 board.giveCardsToWinner(checkRoundWinner(winner));
-                System.out.println("Player " + winner + " won last round!!\n");
+                View.printString("Player " + winner + " won last round!!\n");
             } else {
-                System.out.println("DRAW!\n");
+                View.printString("DRAW!\n");
                 board.addCardsToDrawedCardsAndRemoveFromCurrentlyPlaying();
             }
             SwitchPlayer();
@@ -87,10 +87,10 @@ public class GameController {
 
         if(board.getPlayersList().get(0).checkIfLost()) {
             View.clearScreen();
-            System.out.println("Player 2 won!");
+            View.printString("Player 2 won!");
         } else {
             View.clearScreen();
-            System.out.println("Player 1 won!");
+            View.printString("Player 1 won!");
         }
     }
 
