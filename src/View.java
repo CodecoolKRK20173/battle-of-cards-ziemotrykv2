@@ -4,7 +4,6 @@ class View {
     static Scanner input = new Scanner(System.in);
 
     public static void printMenu() {
-        //printLogo();
         System.out.println("[1] - Start game\n[2] - Exit");
         System.out.print("\n: ");
     }
@@ -17,14 +16,13 @@ class View {
         boolean validChoice = false;
 
         while (!validChoice) {
-            System.out.print("Choose one stat from Your card by number: ");
-
-            String userChoice = input.nextLine();
-            int intUserChoice = Integer.parseInt(userChoice);
+            System.out.print("\nChoose one stat from Your card by number: ");
             try {
+                String userChoice = input.nextLine();
+                int intUserChoice = Integer.parseInt(userChoice);
                 if (intUserChoice < 1 || intUserChoice > 7) {
                     clearScreen();
-                    System.out.println("Invalid number");
+                    System.out.println("Invalid number\n");
                 } else {
                     validChoice = true;
                     clearScreen();
@@ -32,11 +30,10 @@ class View {
                 }
             } catch (NumberFormatException e) {
                 clearScreen();
-                System.out.println("Provide number!");
-                e.printStackTrace();
+                System.out.println("Provide number!\n");
+                //e.printStackTrace(); No exception swallowing!
             }
         }
-
         return -1;
     }
 
@@ -63,7 +60,7 @@ class View {
         } catch (NumberFormatException e) {
             clearScreen();
             System.out.println("FormatException");
-            e.printStackTrace();
+            //e.printStackTrace(); No exception swallowing!
         }
 
         return -1;
