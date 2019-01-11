@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ ! -d "$out" ]
 then
-    mkdir out >>/dev/null
+    mkdir out
     clear
 fi
 cd src
