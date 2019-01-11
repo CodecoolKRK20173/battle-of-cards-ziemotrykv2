@@ -62,9 +62,9 @@ class GameController {
     }
 
     private void gameLoop() {
-        System.out.println("Player " + String.valueOf(currentPlayer) + " Starts");
+        System.out.println("Player " + String.valueOf(currentPlayer) + " Starts\n");
         while (logicHandler.notWon(board.getPlayersList())) {
-            System.out.println(board.getPlayersList().get(0).getCardsInHandSize() + " " + board.getPlayersList().get(1).getCardsInHandSize());
+            System.out.println("Player 1 cards: " + board.getPlayersList().get(0).getCardsInHandSize() + " Player 2 cards: " + board.getPlayersList().get(1).getCardsInHandSize());
             board.addCurrentlyPlayingCards(board.getPlayersList().get(0).getTopCard(), board.getPlayersList().get(1).getTopCard());
             int choosenStat = board.getPlayersList().get(currentPlayer).chooseStat();
             setComparator(choosenStat);
@@ -76,9 +76,9 @@ class GameController {
             int winner = logicHandler.roundWinCheck(comparedStats);
             if (winner < 3) {
                 board.giveCardsToWinner(checkRoundWinner(winner));
-                System.out.println("player " + winner + "won last round!");
+                System.out.println("\nplayer " + winner + " won last round!");
             } else {
-                System.out.println("DRAW!");
+                System.out.println("DRAW!\n");
                 board.addCardsToDrawedCardsAndRemoveFromCurrentlyPlaying();
             }
             SwitchPlayer();
